@@ -1,8 +1,16 @@
+# Import all plugins from `rel/plugins`
+# They can then be used by adding `plugin MyPlugin` to
+# either an environment, or release definition, where
+# `MyPlugin` is the name of the plugin module.
+Path.join(["rel", "plugins", "*.exs"])
+|> Path.wildcard()
+|> Enum.map(&Code.eval_file(&1))
+
 use Mix.Releases.Config,
     # This sets the default release built by `mix release`
     default_release: :default,
     # This sets the default environment used by `mix release`
-    default_environment: :dev
+    default_environment: Mix.env()
 
 # For a full list of config options for both releases
 # and environments, visit https://hexdocs.pm/distillery/configuration.html
@@ -14,11 +22,21 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 environment :dev do
-  set cookie: :"B1(rbJKol<V/A)53R,6mqNO[8m2bl}6b=9FK/yLfxDzL59@?~g~}GNyGMXiAyLuu"
+  # If you are running Phoenix, you should make sure that
+  # server: true is set and the code reloader is disabled,
+  # even in dev mode.
+  # It is recommended that you build with MIX_ENV=prod and pass
+  # the --env flag to Distillery explicitly if you want to use
+  # dev mode.
+  set dev_mode: true
+  set include_erts: false
+  set cookie: :"f({5B1U/No!9O7kCeC.3S`BhuvUV;50QWrqv{^c7.@7;D65M3AY|WSlI@*~[9Qzb"
 end
 
 environment :prod do
-  set cookie: :"B1(rbJKol<V/A)53R,6mqNO[8m2bl}6b=9FK/yLfxDzL59@?~g~}GNyGMXiAyLuu"
+  set include_erts: true
+  set include_src: false
+  set cookie: :"@x>*$^,OEH$x))SP:zg.a?B0zVTN^$^U5>zW0WhDiyFaw/9i&Y}El>y1hAdgMy3V"
 end
 
 # You may define one or more releases in this file.
@@ -28,13 +46,8 @@ end
 
 release :station do
   set version: current_version(:station)
-  plugin Shoehorn
-  if System.get_env("NERVES_SYSTEM") do
-    set dev_mode: false
-    set include_src: false
-    set include_erts: System.get_env("ERL_LIB_DIR")
-    set include_system_libs: System.get_env("ERL_SYSTEM_LIB_DIR")
-    set vm_args: "rel/vm.args"
-  end
+  set applications: [
+    :runtime_tools
+  ]
 end
 

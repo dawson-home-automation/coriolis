@@ -37,8 +37,9 @@ defmodule Station.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nerves, "~> 1.0", runtime: false},
-      {:shoehorn, "~> 0.2"}
+      {:nerves, "~> 1.2.1", runtime: false},
+      {:shoehorn, "~> 0.3.1"},
+      {:distillery, "~> 1.4"}
     ] ++ deps(@target)
   end
 
