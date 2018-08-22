@@ -3,7 +3,9 @@ defmodule Contacts.ContactsControllerTest do
 
   test "GET /api/contacts", %{conn: conn} do
     conn = get conn, "/api/contacts"
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+
+    body = json_response(conn, 200)
+    assert body == []
   end
 
 end
