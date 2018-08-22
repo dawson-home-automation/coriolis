@@ -8,9 +8,11 @@ config :contacts, Contacts.Endpoint,
   pubsub: [name: Ui.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
-config :contacts, Repo,
+config :contacts, Contacts.Repo,
        adapter: Sqlite.Ecto2,
        database: "contacts.sqlite3"
+
+config :contacts, ecto_repos: [Contacts.Repo]
 
 # Configures Elixir's Logger
 config :logger, :console,

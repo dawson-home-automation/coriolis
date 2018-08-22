@@ -6,9 +6,10 @@ defmodule Main.Application do
 
     children = [
       supervisor(Contacts.Endpoint, []),
+      supervisor(Contacts.Repo, [])
     ]
 
-    opts = [strategy: :one_for_one, name: Ui.Supervisor]
+    opts = [strategy: :one_for_one, name: Main.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
