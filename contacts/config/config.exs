@@ -8,10 +8,14 @@ config :contacts, Contacts.Endpoint,
   pubsub: [name: Ui.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :contacts, Repo,
+       adapter: Sqlite.Ecto2,
+       database: "contacts.sqlite3"
+
 # Configures Elixir's Logger
 config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:user_id]
+format: "$time $metadata[$level] $message\n",
+metadata: [:user_id]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

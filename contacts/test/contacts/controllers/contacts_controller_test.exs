@@ -5,7 +5,7 @@ defmodule Contacts.ContactsControllerTest do
     conn = get conn, "/api/contacts"
 
     body = json_response(conn, 200)
-    assert body == []
+    assert length(body) > 0
   end
 
 end
