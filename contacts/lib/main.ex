@@ -1,4 +1,4 @@
-defmodule Ui do
+defmodule Main do
   @moduledoc """
   Ui keeps the contexts that define your domain
   and business logic.

@@ -1,15 +1,10 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
 use Mix.Config
 
 # Configures the endpoint
-config :contacts, UiWeb.Endpoint,
+config :contacts, Contacts.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
-  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: Contacts.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Ui.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
