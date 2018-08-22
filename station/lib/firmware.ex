@@ -1,6 +1,6 @@
-defmodule Station do
+defmodule Firmware do
   @moduledoc """
-  Documentation for Station.
+  Documentation for Firmware.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Station do
 
   ## Examples
 
-      iex> Station.hello
+      iex> Firmware.hello
       :world
 
   """

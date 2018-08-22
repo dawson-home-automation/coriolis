@@ -1,4 +1,4 @@
-defmodule Station.Application do
+defmodule Firmware.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,22 +10,22 @@ defmodule Station.Application do
   def start(_type, _args) do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Station.Supervisor]
+    opts = [strategy: :one_for_one, name: Firmware.Supervisor]
     Supervisor.start_link(children(@target), opts)
   end
 
   # List all child processes to be supervised
   def children("host") do
     [
-      # Starts a worker by calling: Station.Worker.start_link(arg)
-      # {Station.Worker, arg},
+      # Starts a worker by calling: Firmware.Worker.start_link(arg)
+      # {Firmware.Worker, arg},
     ]
   end
 
   def children(_target) do
     [
-      # Starts a worker by calling: Station.Worker.start_link(arg)
-      # {Station.Worker, arg},
+      # Starts a worker by calling: Firmware.Worker.start_link(arg)
+      # {Firmware.Worker, arg},
     ]
   end
 end
