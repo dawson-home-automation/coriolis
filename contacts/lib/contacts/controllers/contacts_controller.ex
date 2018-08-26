@@ -10,6 +10,8 @@ defmodule Contacts.ContactsController do
   end
 
   def add_contact(device) do
+    from(c in Contacts.Device, where: c.name == ^device.name) |> Contacts.Repo.delete_all
+    
     Contacts.Repo.insert(%Contacts.Device{name: device.name, ip: device.ip, target: device.target})
   end
 

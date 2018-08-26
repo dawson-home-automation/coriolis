@@ -1,8 +1,8 @@
 defmodule Contacts.Device do
   use Ecto.Schema
 
+  @primary_key {:name, :string, autogenerate: false}
   schema "devices" do
-    field :name, :string
     field :ip, :string
     field :target, :string
     timestamps()
