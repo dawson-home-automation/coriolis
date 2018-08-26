@@ -2,6 +2,7 @@ defmodule DeviceRegistry.Handler do
   @moduledoc false
 
   require Logger
+  require Poison
 
   defstruct []
   alias __MODULE__, as: State
@@ -53,8 +54,11 @@ defmodule DeviceRegistry.Handler do
   @impl true
   def handle_message(topic, publish, state) do
     message = Poison.decode!(publish)
-    Logger.info("#{message}")
-    Contacts.ContactsController.add_contact(%{name: message["name"], ip: message["ipAddress"], target: message["target"]})
+    Logger.info("Message Received -> #{publish}")
+
+    device = %{name: message["name"], ip: message["ipAddress"], target: message["target"]}
+    Contacts.ContactsController.add_contact(device)
+
     {:ok, state}
   end
 

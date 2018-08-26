@@ -8,8 +8,6 @@ defmodule Main.Application do
     port = System.get_env("MQTT_SERVER_PORT")
     topic = System.get_env("MQTT_TOPIC")
 
-    IO.puts("#{host} - #{port} - #{topic}")
-
     Tortoise.Supervisor.start_child(
       client_id: "contacts",
       handler: {DeviceRegistry.Handler, []},
