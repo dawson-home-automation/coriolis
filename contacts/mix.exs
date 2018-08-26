@@ -29,7 +29,8 @@ defmodule Ui.Mixfile do
       {:phoenix_pubsub, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:sqlite_ecto2, "~> 2.2"},
-      {:ecto, "~> 2.1"}
+      {:ecto, "~> 2.1"},
+      {:tortoise, "~> 0.8.1"}
     ]
   end
 end
