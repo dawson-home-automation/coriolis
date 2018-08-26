@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :contacts, Contacts.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   secret_key_base: "HEY05EB1dFVSu6KykKHuS4rQPQzSHv4F7mGVB/gnDLrIu75wE/ytBXy2TaL3A6RA",
   render_errors: [view: Contacts.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Ui.PubSub,

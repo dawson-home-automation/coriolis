@@ -52,7 +52,7 @@ defmodule DeviceRegistry.Handler do
   end
 
   @impl true
-  def handle_message(topic, publish, state) do
+  def handle_message(_topic, publish, state) do
     message = Poison.decode!(publish)
     Logger.info("Message Received -> #{publish}")
 
