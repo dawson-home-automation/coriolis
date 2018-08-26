@@ -3,7 +3,8 @@ defmodule Contacts.Device do
 
   schema "devices" do
     field :name, :string
-    field :link, :string
+    field :ip, :string
+    field :target, :string
     timestamps()
   end
 

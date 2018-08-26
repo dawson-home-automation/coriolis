@@ -4,6 +4,18 @@ defmodule Main.Application do
   def start(_type, _args) do
     import Supervisor.Spec
 
+    host = System.get_env("MQTT_SERVER")
+    port = System.get_env("MQTT_SERVER_PORT")
+    topic = System.get_env("MQTT_TOPIC")
+
+    IO.puts("#{host} - #{port} - #{topic}")
+
+    Tortoise.Supervisor.start_child(
+      client_id: "contacts",
+      handler: {DeviceRegistry.Handler, []},
+      server: {Tortoise.Transport.Tcp, host: host, port: 1883},
+      subscriptions: [{topic, 0}])
+
     children = [
       supervisor(Contacts.Endpoint, []),
       supervisor(Contacts.Repo, [])

@@ -10,13 +10,13 @@ defmodule Contacts.ContactsController do
   end
 
   def add_contact(device) do
-    Contacts.Repo.insert(%Contacts.Device{name: device.name, link: device.link})
+    Contacts.Repo.insert(%Contacts.Device{name: device.name, ip: device.ip, target: device.target})
   end
 
   defp get_contacts() do
     Contacts.Repo.all(
       Contacts.Device |>
-        select([device], %{name: device.name, link: device.link})
+        select([device], %{name: device.name, ip: device.ip, target: device.target})
     )
   end
 

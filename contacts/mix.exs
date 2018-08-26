@@ -30,7 +30,8 @@ defmodule Ui.Mixfile do
       {:cowboy, "~> 1.0"},
       {:sqlite_ecto2, "~> 2.2"},
       {:ecto, "~> 2.1"},
-      {:tortoise, "~> 0.8.1"}
+      {:tortoise, "~> 0.8.1"},
+      {:poison, "~> 3.1"}
     ]
   end
 end
