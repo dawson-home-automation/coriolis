@@ -1,0 +1,6 @@
+%{
+  "eqc_ex": {:hex, :eqc_ex, "1.4.2", "c89322cf8fbd4f9ddcb18141fb162a871afd357c55c8c0198441ce95ffe2e105", [:mix], [], "hexpm"},
+  "gen_state_machine": {:hex, :gen_state_machine, "2.0.3", "477ea51b466a749ab23a0d6090e9e84073f41f9aa28c7efc40eac18f3d4a9f77", [:mix], [], "hexpm"},
+  "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], [], "hexpm"},
+  "tortoise": {:hex, :tortoise, "0.8.2", "38c5f9232d5485a5873ba03742c7e91144822ac4c465d37b2591296a676f085e", [:mix], [{:eqc_ex, "~> 1.4", [hex: :eqc_ex, repo: "hexpm", optional: false]}, {:gen_state_machine, "~> 2.0", [hex: :gen_state_machine, repo: "hexpm", optional: false]}], "hexpm"},
+}
