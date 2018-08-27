@@ -47,7 +47,8 @@ defmodule Firmware.MixProject do
       {:shoehorn, "~> 0.4"},
       {:nerves_runtime, "~> 0.6"},
       {:nerves_init_gadget, "~> 0.4"},
-      {:contacts, path: "../contacts"}
+      {:contacts, path: "../contacts"},
+      {:dock, path: "../dock"}
     ] ++ system(target)
   end
 
